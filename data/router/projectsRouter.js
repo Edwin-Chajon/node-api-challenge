@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
   const project = req.body;
   Projects.insert(project).then(proj => {
             project.name && project.description ?
-              res.status(201).json(project)
+              res.status(201).json(proj)
             : res.status(400).json({ Message: "need both name and description"})})
           .catch(err => {res.status(500).json({Message: "Error saving this project"})});
 });
